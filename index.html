@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>玟廷 Japan SGU 申請指南 2027</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+  :root {
+    --bg: #F7F5F0;
+    --surface: #FFFFFF;
+    --border: #E2DDD6;
+    --text: #1A1714;
+    --muted: #6B6560;
+    --subtle: #9A948E;
+    --reach: #C4401C;
+    --reach-bg: #FDF0EB;
+    --reach-border: #F0C4B4;
+    --target-c: #1A5FA8;
+    --target-bg: #EBF2FC;
+    --target-border: #B4CFF0;
+    --safety: #1A7A48;
+    --safety-bg: #EBF7F1;
+    --safety-border: #B4E0CB;
+    --accent: #C4401C;
+    --gold: #8C6D28;
+    --gold-bg: #FBF5E8;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* HEADER */
+  .site-header {
+    background: var(--text);
+    color: #fff;
+    padding: 3.5rem 2rem 3rem;
+    text-align: center;
+  }
+  .header-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.5);
+    margin-bottom: .9rem;
+  }
+  .header-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.15;
+    margin-bottom: .8rem;
+    letter-spacing: -.01em;
+  }
+  .header-title em { font-style: italic; color: #E8A87C; }
+  .header-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,.6);
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* NAV TABS */
+  .nav-tabs {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    scrollbar-width: none;
+  }
+  .nav-tabs::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    flex-shrink: 0;
+    padding: .9rem 1.5rem;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted);
+    border: none;
+    background: none;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: color .2s, border-color .2s;
+    white-space: nowrap;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .tab-btn:hover { color: var(--text); }
+  .tab-btn.active { color: var(--text); border-bottom-color: var(--text); }
+
+  /* SECTIONS */
+  .section { display: none; }
+  .section.active { display: block; }
+
+  /* CONTAINERS */
+  .container { max-width: 900px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+  .container-wide { max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+
+  /* OVERVIEW CARDS */
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .ov-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+  }
+  .ov-label { font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--subtle); margin-bottom: .4rem; }
+  .ov-val { font-size: 22px; font-weight: 600; line-height: 1.2; }
+  .ov-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+  /* TIER BADGE */
+  .tier {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 99px;
+    flex-shrink: 0;
+  }
+  .tier-reach { background: var(--reach-bg); color: var(--reach); border: 1px solid var(--reach-border); }
+  .tier-target { background: var(--target-bg); color: var(--target-c); border: 1px solid var(--target-border); }
+  .tier-safety { background: var(--safety-bg); color: var(--safety); border: 1px solid var(--safety-border); }
+
+  /* SCHOOL CARD */
+  .school-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+  }
+  .school-head {
+    padding: 1.5rem 2rem 1.25rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .school-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    line-height: 1.2;
+    margin-bottom: 3px;
+  }
+  .school-sub { font-size: 12px; color: var(--muted); }
+  .school-body { padding: 1.5rem 2rem; }
+
+  /* PROGRAM BLOCK */
+  .prog {
+    background: #FAFAF8;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    margin-bottom: .75rem;
+  }
+  .prog:last-child { margin-bottom: 0; }
+  .prog-head { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; margin-bottom: .4rem; }
+  .prog-name { font-weight: 600; font-size: 14px; }
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .04em;
+    padding: 2px 7px;
+    border-radius: 4px;
+  }
+  .tag-p { background: #EEF0FE; color: #3B3F9E; }
+  .tag-e { background: #FEF5E7; color: #8C5A0A; }
+  .tag-i { background: #E7F7EE; color: #0F6B38; }
+  .tag-l { background: #E7F0FE; color: #1A5090; }
+  .tag-g { background: #FEECE7; color: #8C2A0A; }
+  .prog-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+  /* STATS GRID */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 8px;
+    margin: 1.25rem 0;
+  }
+  .stat {
+    background: #FAFAF8;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: .6rem .9rem;
+  }
+  .stat-label { font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--subtle); margin-bottom: 3px; }
+  .stat-val { font-size: 14px; font-weight: 600; }
+  .stat-val.sm { font-size: 12px; font-weight: 400; line-height: 1.4; }
+
+  /* SECTION LABEL */
+  .sec-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--subtle);
+    margin: 1.25rem 0 .6rem;
+  }
+  .sec-label:first-child { margin-top: 0; }
+
+  /* HIGHLIGHT / WARN */
+  .hl {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 6px;
+    margin-top: 8px;
+  }
+  .hl-blue { background: var(--target-bg); color: var(--target-c); }
+  .hl-green { background: var(--safety-bg); color: var(--safety); }
+  .hl-gold { background: var(--gold-bg); color: var(--gold); }
+  .hl-warn { background: #FEF9E7; color: #7D5A0A; border: 1px solid #F0D89A; }
+
+  hr.divider { border: none; border-top: 1px solid var(--border); margin: 1.25rem 0; }
+
+  /* TIMELINE */
+  .timeline { max-width: 780px; margin: 0 auto; }
+  .tl-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 1.75rem;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .tl-legend-item { display: flex; align-items: center; gap: 6px; }
+  .tl-dot-sm {
+    width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0;
+  }
+  .dot-w { background: #C4401C; }
+  .dot-k { background: #1A5FA8; }
+  .dot-s { background: #1A7A48; }
+  .dot-t { background: #8C6D28; }
+  .dot-all { background: #5A3FA8; }
+
+  .tl-group { display: flex; gap: 0; margin-bottom: 1px; }
+  .tl-month {
+    width: 100px;
+    flex-shrink: 0;
+    text-align: right;
+    padding: .75rem 1rem .75rem 0;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--subtle);
+    border-right: 2px solid var(--border);
+    line-height: 1.3;
+  }
+  .tl-events {
+    flex: 1;
+    padding: .75rem 0 .75rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .tl-group:last-child .tl-events { border-bottom: none; }
+  .tl-evt {
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+    margin-bottom: 5px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .tl-evt:last-child { margin-bottom: 0; }
+  .tl-evt-dot {
+    width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-top: 5px;
+  }
+  .tl-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    padding: 1px 6px;
+    border-radius: 3px;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .tl-badge-w { background: var(--reach-bg); color: var(--reach); }
+  .tl-badge-k { background: var(--target-bg); color: var(--target-c); }
+  .tl-badge-s { background: var(--safety-bg); color: var(--safety); }
+  .tl-badge-t { background: var(--gold-bg); color: var(--gold); }
+  .tl-badge-all { background: #F0EBF7; color: #5A3FA8; }
+  .tl-key { font-weight: 500; }
+  .tl-note { color: var(--muted); font-size: 12px; }
+
+  /* COMPARISON TABLE */
+  .compare-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .compare-table th {
+    padding: .75rem 1rem;
+    text-align: left;
+    background: var(--text);
+    color: #fff;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: .04em;
+  }
+  .compare-table th:first-child { border-radius: 8px 0 0 0; }
+  .compare-table th:last-child { border-radius: 0 8px 0 0; }
+  .compare-table td {
+    padding: .75rem 1rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table tr:nth-child(even) td { background: #FAFAF8; }
+  .compare-table .row-label { font-weight: 600; font-size: 12px; color: var(--muted); white-space: nowrap; }
+  .cell-yes { color: var(--safety); font-weight: 600; }
+  .cell-no { color: var(--reach); }
+  .table-wrap {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    overflow-x: auto;
+  }
+
+  /* INTRO SECTION */
+  .intro-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .intro-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+    margin-bottom: .5rem;
+  }
+  .strategy-list { list-style: none; padding: 0; }
+  .strategy-list li {
+    padding: .45rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+    display: flex;
+    gap: 10px;
+  }
+  .strategy-list li:last-child { border-bottom: none; }
+  .s-icon { flex-shrink: 0; font-size: 16px; margin-top: 1px; }
+
+  /* FOOTER NOTE */
+  .footer-note {
+    text-align: center;
+    font-size: 11px;
+    color: var(--subtle);
+    padding: 2rem 1rem;
+    border-top: 1px solid var(--border);
+    margin-top: 1rem;
+  }
+
+  /* responsive */
+  @media (max-width: 600px) {
+    .school-head { flex-direction: column; gap: .5rem; }
+    .school-body { padding: 1.25rem 1rem; }
+    .school-head { padding: 1.25rem 1rem 1rem; }
+    .tl-month { width: 72px; font-size: 11px; padding-right: .75rem; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-label">Japan SGU Application Guide · 2027 Intake</div>
+  <h1 class="header-title">玟廷的日本大學<em>申請指南</em></h1>
+  <p class="header-sub">目標入學：2027年9月 ／ 備案：2028年4月 · 四所學校英語課程完整資訊</p>
+</header>
+
+<!-- NAV -->
+<nav class="nav-tabs" role="tablist">
+  <button class="tab-btn active" onclick="showTab('overview')" role="tab">總覽 &amp; 策略</button>
+  <button class="tab-btn" onclick="showTab('waseda')" role="tab">早稻田</button>
+  <button class="tab-btn" onclick="showTab('keio')" role="tab">慶應義塾</button>
+  <button class="tab-btn" onclick="showTab('sophia')" role="tab">上智</button>
+  <button class="tab-btn" onclick="showTab('temple')" role="tab">Temple TUJ</button>
+  <button class="tab-btn" onclick="showTab('compare')" role="tab">四校比較</button>
+  <button class="tab-btn" onclick="showTab('timeline')" role="tab">申請時程表</button>
+</nav>
+
+<!-- ═══════════════════ OVERVIEW ═══════════════════ -->
+<section id="overview" class="section active">
+<div class="container">
+
+  <div class="overview-grid">
+    <div class="ov-card">
+      <div class="ov-label">目標入學</div>
+      <div class="ov-val">2027/09</div>
+      <div class="ov-sub">備案：2028年4月（GIGA）</div>
+    </div>
+    <div class="ov-card">
+      <div class="ov-label">SAT 目標</div>
+      <div class="ov-val">1450+</div>
+      <div class="ov-sub">考試：2026年6月6日</div>
+    </div>
+    <div class="ov-card">
+      <div class="ov-label">TOEFL 目標</div>
+      <div class="ov-val">100+</div>
+      <div class="ov-sub">考試：2025年12月（預計）</div>
+    </div>
+    <div class="ov-card">
+      <div class="ov-label">GPA 目標</div>
+      <div class="ov-val">3.5+</div>
+      <div class="ov-sub">持續提升中</div>
+    </div>
+    <div class="ov-card">
+      <div class="ov-label">申請校數</div>
+      <div class="ov-val">4 所</div>
+      <div class="ov-sub">共 5 個課程申請</div>
+    </div>
+    <div class="ov-card">
+      <div class="ov-label">授課語言</div>
+      <div class="ov-val">100%</div>
+      <div class="ov-sub">全部為英語授課課程</div>
+    </div>
+  </div>
+
+  <div class="intro-box">
+    <div class="intro-title">申請策略</div>
+    <ul class="strategy-list">
+      <li><span class="s-icon">🔴</span><span>衝刺校（早稻田 SILS、慶應 PEARL）：SAT 1450+ 目標，完整文件申請，爭取早期錄取</span></li>
+      <li><span class="s-icon">🟡</span><span>衝刺校（慶應 GIGA）：海外申請者首選 Winter AO，SAT 選填，可申請全額獎學金，另設春季入學（2028/04）備案</span></li>
+      <li><span class="s-icon">🔵</span><span>目標校（上智 FLA）：申請時同步申請 New Student / Adachi 獎學金，錄取率相對友善（約35–45%）</span></li>
+      <li><span class="s-icon">🟢</span><span>保底校（Temple TUJ）：全年滾動申請，SAT/TOEFL 均選填，日本唯一美國心理學學位，建議優先送出</span></li>
+      <li><span class="s-icon">📌</span><span>AP 心理學（2026/05 已考）：4–5 分成績可強化所有申請文件，建議在個人陳述中突顯學術興趣</span></li>
+    </ul>
+  </div>
+
+  <div class="intro-box">
+    <div class="intro-title">五個申請課程一覽</div>
+    <ul class="strategy-list">
+      <li><span class="tier tier-reach">衝刺</span><span style="font-size:14px">早稻田 SILS（國際教養學部）—— 全英語自由教育，跨學科選課</span></li>
+      <li><span class="tier tier-reach">衝刺</span><span style="font-size:14px">慶應 PEARL（經濟學部）—— 全英語經濟學學士，文件審查制</span></li>
+      <li><span class="tier tier-reach">衝刺</span><span style="font-size:14px">慶應 GIGA（政策管理・環境情報）—— 全英語跨學科，Winter AO 可申請獎學金</span></li>
+      <li><span class="tier tier-target">目標</span><span style="font-size:14px">上智 FLA（自由教育學部）—— 全英語，申請時可同步申請獎學金</span></li>
+      <li><span class="tier" style="background:var(--gold-bg);color:var(--gold);border:1px solid #E0C87A;">保底</span><span style="font-size:14px">Temple TUJ（心理學主修）—— 美國學位，SAT/TOEFL 選填</span></li>
+    </ul>
+  </div>
+
+</div>
+</section>
+
+<!-- ═══════════════════ WASEDA ═══════════════════ -->
+<section id="waseda" class="section">
+<div class="container">
+  <div class="school-card">
+    <div class="school-head">
+      <div>
+        <div class="school-name">早稻田大學 Waseda University</div>
+        <div class="school-sub">東京・新宿 ／ SGU 指定校 ／ QS 2026 全球 #196 ／ 日本私立 #1</div>
+      </div>
+      <span class="tier tier-reach">🔴 衝刺校</span>
+    </div>
+    <div class="school-body">
+
+      <div class="sec-label">申請課程</div>
+      <div class="prog">
+        <div class="prog-head">
+          <span class="prog-name">① SILS — School of International Liberal Studies（國際教養學部）</span>
+          <span class="tag tag-l">自由教育</span><span class="tag tag-i">跨學科</span>
+        </div>
+        <div class="prog-desc">全英語授課，日本「Global Five」自由教育名校之一。7大學術群涵蓋文化・心靈・社群（Culture, Mind and Body）、傳播、治理與人權等，可深度選修心理學相關課程。學生可自由設計學習路徑，約 1/3 為國際生，多元程度極高。入學後可申請雙學位或海外交換計畫。僅秋季（9月）入學。<br><br>
+        <strong>招生名額：</strong>約 150 人（其中早期錄取 Early Decision 約 70 人）</div>
+      </div>
+      <div class="prog">
+        <div class="prog-head">
+          <span class="prog-name">② SPSE — School of Political Science and Economics（政治經濟學部）英語課程</span>
+          <span class="tag tag-i">政治經濟</span><span class="tag tag-i">社會科學</span>
+        </div>
+        <div class="prog-desc">全英語授課，涵蓋政治學、國際關係、經濟學。與 SILS 並列為早大最主要的英語學士學程。入學後可選 Economics、Political Science、International Liberal Studies 等方向。無日語能力要求。僅秋季（9月）入學。<br><br>
+        ⚠️ 建議申請前至官網確認 2027 年度英語申請窗口是否持續開放。</div>
+      </div>
+
+      <hr class="divider">
+      <div class="sec-label">申請條件</div>
+      <div class="stats-grid">
+        <div class="stat"><div class="stat-label">SAT 競爭範圍</div><div class="stat-val">1400–1500</div></div>
+        <div class="stat"><div class="stat-label">TOEFL iBT 建議</div><div class="stat-val">100+</div></div>
+        <div class="stat"><div class="stat-label">GPA 建議</div><div class="stat-val">3.5+</div></div>
+        <div class="stat"><div class="stat-label">面試</div><div class="stat-val">無（文件審查制）</div></div>
+        <div class="stat"><div class="stat-label">入學日</div><div class="stat-val">9月（秋季）</div></div>
+        <div class="stat"><div class="stat-label">錄取率（整體）</div><div class="stat-val">約 10–15%</div></div>
+      </div>
+
+      <div class="sec-label">必備申請文件（SILS）</div>
+      <div class="stats-grid">
+        <div class="stat"><div class="stat-label">學術成績</div><div class="stat-val sm">高中成績單（官方版）</div></div>
+        <div class="stat"><div class="stat-label">標準化考試</div><div class="stat-val sm">SAT 或 ACT 或 IB（三擇一）</div></div>
+        <div class="stat"><div class="stat-label">英語能力</div><div class="stat-val sm">TOEFL iBT 或 IELTS（母語英語者可申請豁免）</div></div>
+        <div class="stat"><div class="stat-label">申請文章</div><div class="stat-val sm">Essay（早期與一般申請題目不同）</div></div>
+        <div class="stat"><div class="stat-label">推薦信</div><div class="stat-val sm">1–2 封</div></div>
+        <div class="stat"><div class="stat-label">課外活動</div><div class="stat-val sm">最多列舉 3 項（選填）</div></div>
+      </div>
+
+      <div class="hl hl-warn">⚠️ 2027年9月入學起，標準化考試成績有效期新規定將實施，請確認 SAT 考試日期符合要求</div>
+
+      <hr class="divider">
+      <div class="sec-label">申請截止日（2027年9月入學，以2026年申請慣例推估）</div>
+      <div class="stats-grid">
+        <div class="stat"><div class="stat-label">Early Decision（早期）</div><div class="stat-val sm">預計 2026年12月下旬<br>（2026年入學為12/23）</div></div>
+        <div class="stat"><div class="stat-label">Regular Admission（一般）</div><div class="stat-val sm">預計 2027年1月下旬<br>（2026年入學為1/27）</div></div>
+        <div class="stat"><div class="stat-label">放榜（早期）</div><div class="stat-val sm">預計 2027年2月初</div></div>
+        <div class="stat"><div class="stat-label">指南公告時間</div><div class="stat-val sm">預計 2026年9月公告<br>（以官網為準）</div></div>
+      </div>
+
+      <hr class="divider">
+      <div class="sec-label">學費 &amp; 獎學金</div>
+      <div class="stats-grid">
+        <div class="stat"><div class="stat-label">SILS 年學費</div><div class="stat-val">約 ¥1,419,000</div></div>
+        <div class="stat"><div class="stat-label">東京生活費</div><div class="stat-val sm">約 ¥100–200 萬/年<br>（住宿＋生活）</div></div>
+        <div class="stat"><div class="stat-label">獎學金</div><div class="stat-val sm">入學後申請，名額競爭激烈。Early Decision 入學者有獎學金優先權</div></div>
+      </div>
+
+      <hr class="divider">
+      <div class="sec-label">學校特色 &amp; 優勢</div>
+      <div class="prog-desc" style="font-size:14px;line-height:1.7">
+        早稻田是日本最具國際視野的私立大學，QS 雇主評鑑全球第 37 名（日本第一）。SILS 選課自由度極高，非常適合尚未確定單一主修方向、希望跨領域探索的學生。校園位於東京新宿，交通便利，國際生社群活躍。SILS 為非約束性（non-binding）申請，申請後仍可同時申請其他學校。
+      </div>
+
+      <div class="hl hl-blue" style="margin-top:1rem">🔗 官方網站：<a href="https://www.waseda.jp/fire/sils/en/applicants/admission/" target="_blank" style="color:inherit">waseda.jp/fire/sils/en/applicants/admission</a></div>
+
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════════════ KEIO ═══════════════════ -->
+<section id="keio" class="section">
+<div class="container">
+  <div class="school-card">
+    <div class="school-head">
+      <div>
+        <div class="school-name">慶應義塾大學 Keio University</div>
+        <div class="school-sub">東京・三田（PEARL）＋ 神奈川・湘南藤澤（GIGA）／ SGU 指定校 ／ QS 2026 全球 #215 ／ 日本私立 #2</div>
+      </div>
+      <span class="tier tier-reach">🔴 衝刺校</span>
+    </div>
+    <div class="school-body">
+
+      <div class="sec-label">申請課程（兩個均申請）</div>
+      <div class="prog">
+        <div class="prog-head">
+          <span class="prog-name">① PEARL — Program in Economics for Alliances, Research, and Leadership</span>
+          <span class="tag tag-e">經濟學</span>
+        </div>
+        <div class="prog-desc">
+          全英語4年制經濟學學士，由慶應經濟學部提供。純文件審查，無面試，不需赴日。三個申請期可滾動申請，未通過第一期可繼續申請第二、三期（名額共用）。<br><br>
+          <strong>招生名額：</strong>三期合計約 100 人 ／ 僅秋季（9月）入學<br>
+          <strong>必須提交：</strong>SAT 或 ACT 或 IB（三擇一，缺一不可）
+        </div>
+      </div>
+      <div class="prog">
+        <div class="prog-head">
+          <span class="prog-name">② GIGA — Global Information and Governance Academic Program</span>
+          <span class="tag tag-g">政策管理</span><span class="tag tag-i">跨學科</span>
+        </div>
+        <div class="prog-desc">
+          全英語4年制學士，由慶應湘南藤澤校區（SFC）政策管理學部 / 環境情報學部提供。跨學科設計，涵蓋資訊科技、社會治理、環境政策、人文行為研究，是四個英語課程中最接近社會科學 / 心理學方向的學程。<br><br>
+          <strong>Winter AO（海外申請者強力推薦）：</strong>無需赴日面試，純文件審查，且可申請「國際生限定全額獎學金」。SAT 為選填（建議提交）。春季（4月）＋秋季（9月）皆招生，一次申請可同時涵蓋兩個入學期。<br><br>
+          ⚠️ 同年只能申請一個學部（Policy Management 或 Environment and Information Studies，擇一）<br>
+          ⚠️ Spring AO / Summer AO 需赴日面試，海外學生不建議選擇
+        </div>
+        <div class="hl hl-gold">★ 2028年4月入學備案：若 2027年9月未錄取，可再次申請 GIGA Winter AO（2027年底），爭取 2028年4月入學</div>
+      </div>
+
+      <hr class="divider">
+      <div class="sec-label">申請條件</div>
+      <div class="stats-grid">
+        <div class="stat"><div class="stat-label">PEARL SAT</div><div class="stat-val">必繳<br>1400+ 建議</div></div>
+        <div class="stat"><div class="stat-label">GIGA SAT</div><div class="stat-val">選填<br>1350+ 建議</div></div>
+        <div class="stat"><div class="stat-label">GPA 建議</div><div class="stat-val">3.5+</div></div>
+        <div class="stat"><div class="stat-label">TOEFL</div><div class="stat-val sm">母語英語者可申請豁免（附說明文件）</div></div>
+        <div class="stat"><div class="stat-label">面試</div><div class="stat-val">PEARL 無<br>GIGA Winter AO 無</div></div>
+        <div class="stat"><div class="stat-label">錄取率（整體）</div><div class="stat-val">約 20–24%</div></div>
+      </div>
+
+      <div class="sec-label">PEARL 必備申請文件</div>
+      <div class="stats-grid">
+        <div class="stat"><div class="stat-label">學術成績</div><div class="stat-val sm">高中成績單（官方版）</div></div>
+        <div class="stat"><div class="stat-label">標準化考試</div><div class="stat-val sm">SAT / ACT / IB（必繳其中一項）</div></div>
+        <div class="stat"><div class="stat-label">個人陳述</div><div class="stat-val sm">學術目標陳述書（英語撰寫）</div></div>
+        <div class="stat"><div class="stat-label">推薦信</div><div class="stat-val sm">推薦信（封數依指南）</div></div>
+        <div class="stat"><div class="stat-label">畢業證明</div><div class="stat-val sm">高中畢業或預計畢業證明</div></div>
+        <div class="stat"><div class="stat-label">申請費</div><div class="stat-val sm">¥35,000（線上信用卡）</div></div>
+      </div>
+
+      <hr class="divider">
+      <div class="sec-label">PEARL 申請截止日（2027年9月入學，以2026年入學慣例推估）</div>
+      <div class="stats-grid">
+        <div class="stat"><div class="stat-label">第一期截止</div><div class="stat-val sm">預計 2026年12月初<br>（2026入學：12/03）</div></div>
+        <div class="stat"><div class="stat-label">第一期放榜</div><div class="stat-val sm">預計 2027年1月下旬</div></div>
+        <div class="stat"><div class="stat-label">第二期截止</div><div class="stat-val sm">預計 2027年1月下旬<br>（2026入學：1/28）</div></div>
+        <div class="stat"><div class="stat-label">第三期截止（最終）</div><div class="stat-val sm">預計 2027年4月初<br>（2026入學：4/10）</div></div>
+      </div>
+
+      <div class="sec-label">GIGA Winter AO 申請截止日（2027年9月 ＋ 2028年4月入學）</div>
+      <div class="stats-grid">
+        <div class="stat"><div class="stat-label">指南公告</div><div class="stat-val sm">預計 2026年8月底公告</div></div>
+        <div class="stat"><div class="stat-label">申請費繳納截止</div><div class="stat-val sm">預計 2027年1月中旬<br>（2026 Winter AO：1/23）</div></div>
+        <div class="stat"><div class="stat-label">放榜</div><div class="stat-val sm">預計申請截止後約 4–6 週</div></div>
+        <div class="stat"><div class="stat-label">入學日</div><div class="stat-val sm">2027年9月<br>（備案：2028年4月）</div></div>
+      </div>
+
+      <hr class="divider">
+      <div class="sec-label">學費 &amp; 獎學金</div>
+      <div class="stats-grid">
+        <div class="stat"><div class="stat-label">PEARL 年學費</div><div class="stat-val">約 ¥1,400,000</div></div>
+        <div class="stat"><div class="stat-label">GIGA 年學費</div><div class="stat-val">約 ¥1,400,000</div></div>
+        <div class="stat"><div class="stat-label">GIGA 全額獎學金</div><div class="stat-val sm">Winter AO 國際生限定，競爭制，需於申請時一同申請（僅9月入學者可申請）</div></div>
+        <div class="stat"><div class="stat-label">神奈川生活費</div><div class="stat-val sm">約 ¥80–150 萬/年（SFC 校區環境優美，生活費低於東京）</div></div>
+      </div>
+
+      <hr class="divider">
+      <div class="sec-label">學校特色 &amp; 優勢</div>
+      <div class="prog-desc" style="font-size:14px;line-height:1.7">
+        慶應是日本最古老的私立大學（1858年創立），全球雇主評鑑名列前茅。PEARL 是日本頂尖大學中極罕見的全英語經濟學學士課程，課程嚴謹；GIGA 的 SFC 校區以「無邊界學習」著稱，課程設計極具彈性，採研究導向教學，適合有明確學術好奇心的學生。
+      </div>
+
+      <div class="hl hl-blue" style="margin-top:1rem">🔗 PEARL 官網：<a href="https://www.keio.ac.jp/en/admissions/undergraduate/pearl/" target="_blank" style="color:inherit">keio.ac.jp/en/admissions/undergraduate/pearl</a></div>
+      <div class="hl hl-blue">🔗 GIGA Winter AO：<a href="https://www.sfc.keio.ac.jp/en/admissions/pmei/ao_giga.html" target="_blank" style="color:inherit">sfc.keio.ac.jp/en/admissions/pmei/ao_giga.html</a></div>
+
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════════════ SOPHIA ═══════════════════ -->
+<section id="sophia" class="section">
+<div class="container">
+  <div class="school-card">
+    <div class="school-head">
+      <div>
+        <div class="school-name">上智大學 Sophia University</div>
+        <div class="school-sub">東京・四谷 ／ SGU 指定校 ／ QS 2026 全球 #951–1000 ／ 早慶上智三校之一</div>
+      </div>
+      <span class="tier tier-target">🔵 目標校</span>
+    </div>
+    <div class="school-body">
+
+      <div class="sec-label">申請課程</div>
+      <div class="prog">
+        <div class="prog-head">
+          <span class="prog-name">FLA — Faculty of Liberal Arts（自由教育學部）</span>
+          <span class="tag tag-l">自由教育</span><span class="tag tag-p">人文社科</span>
+        </div>
+        <div class="prog-desc">
+          全英語授課自由教育學部，為上智最主要的國際英語課程。課程跨越哲學、社會學、政治、傳播、文化研究等多個領域，可深度選修心理學相關課程（視當年度課程表）。約30%學生為外籍，多元化程度高，課堂討論氣氛活躍。入學申請完全文件審查制，無面試，無需赴日。春季（4月）＋秋季（9月）皆招生。<br><br>
+          <strong>特別優勢：</strong>可在入學申請時同步申請校方獎學金（見下方），無需額外等待。
+        </div>
+      </div>
+
+      <hr class="divider">
+      <div class="sec-label">申請條件</div>
+      <div class="stats-grid">
+        <div class="stat"><div class="stat-label">SAT 競爭範圍</div><div class="stat-val">1300–1450</div></div>
+        <div class="stat"><div class="stat-label">TOEFL iBT</div><div class="stat-val">80–100</div></div>
+        <div class="stat"><div class="stat-label">GPA 建議</div><div class="stat-val">3.3+</div></div>
+        <div class="stat"><div class="stat-label">面試</div><div class="stat-val">無（文件審查制）</div></div>
+        <div class="stat"><div class="stat-label">入學期</div><div class="stat-val">春季（4月）或秋季（9月）</div></div>
+        <div class="stat"><div class="stat-label">錄取率（整體）</div><div class="stat-val">約 34–45%</div></div>
+      </div>
+
+      <div class="sec-label">必備申請文件（FLA）</div>
+      <div class="stats-grid">
+        <div class="stat"><div class="stat-label">學術成績</div><div class="stat-val sm">高中成績單（官方版）</div></div>
+        <div class="stat"><div class="stat-label">標準化考試</div><div class="stat-val sm">SAT / ACT / IB（建議提交）</div></div>
+        <div class="stat"><div class="stat-label">英語能力</div><div class="stat-val sm">TOEFL iBT 或 IELTS（建議 2026/01/21 後考試成績）</div></div>
+        <div class="stat"><div class="stat-label">個人陳述</div><div class="stat-val sm">Essay / Personal Statement</div></div>
+        <div class="stat"><div class="stat-label">推薦信</div><div class="stat-val sm">推薦信（通常 1–2 封）</div></div>
+        <div class="stat"><div class="stat-label">申請費</div><div class="stat-val sm">費用＋線上申請手續費 ¥1,100</div></div>
+      </div>
+
+      <div class="hl hl-warn">⚠️ 2026年起申請文件改為線上上傳（sophiaupload.jp），需先完成 MyPage 線上申請並取得 Receipt Number 後才可上傳</div>
+
+      <hr class="divider">
+      <div class="sec-label">申請截止日（2027年9月入學，以2026年申請慣例推估）</div>
+      <div class="stats-grid">
+        <div class="stat"><div class="stat-label">第一期（秋季入學）</div><div class="stat-val sm">預計 2026年11月<br>（需持續追蹤官網）</div></div>
+        <div class="stat"><div class="stat-label">第二期（秋季入學）</div><div class="stat-val sm">預計 2027年1–2月<br>（需持續追蹤官網）</div></div>
+        <div class="stat"><div class="stat-label">春季入學申請</div><div class="stat-val sm">2028年4月入學申請<br>預計 2027年秋冬季</div></div>
+        <div class="stat"><div class="stat-label">指南公告</div><div class="stat-val sm">2027入學版本預計 2026年春夏公告</div></div>
+      </div>
+
+      <hr class="divider">
+      <div class="sec-label">學費 &amp; 獎學金（重點）</div>
+      <div class="stats-grid">
+        <div class="stat"><div class="stat-label">FLA 年學費</div><div class="stat-val">約 ¥1,400,000</div></div>
+        <div class="stat">
+          <div class="stat-label">New Student Scholarship</div>
+          <div class="stat-val sm">補助 1/3、1/2 或全額學費（第一年）<br>對象：國際生及日本學生</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Adachi Scholarship（上智惠益獎學金）</div>
+          <div class="stat-val sm">補助全額學費＋教育提升費（第一年）<br>對象：限國際生</div>
+        </div>
+        <div class="stat"><div class="stat-label">申請方式</div><div class="stat-val sm">與入學申請同步提交，以上智為第一志願為前提，另附財務需求說明</div></div>
+      </div>
+
+      <div class="hl hl-green">★ 上智獎學金可在申請入學的同時一起申請，越早申請越有利，強烈建議申請第一期</div>
+
+      <hr class="divider">
+      <div class="sec-label">學校特色 &amp; 優勢</div>
+      <div class="prog-desc" style="font-size:14px;line-height:1.7">
+        上智是日本最具國際聲望的耶穌會大學（1913年創立），長期與早慶並列「早慶上智」頂尖私立三校。FLA 的教授來自全球各地，課堂討論以英語進行，學術氣氛嚴謹且包容。東京四谷校區地處精華地段。四校中錄取率相對最友善，且有入學時即可申請的獎學金，是玟廷整體策略中的核心目標校。
+      </div>
+
+      <div class="hl hl-blue" style="margin-top:1rem">🔗 FLA 申請官網：<a href="https://adm.sophia.ac.jp/eng/admissions/ug_p/en_ug/fla/w_h/" target="_blank" style="color:inherit">adm.sophia.ac.jp/eng/admissions/ug_p/en_ug/fla/w_h</a></div>
+      <div class="hl hl-blue">🔗 FLA 獎學金：<a href="https://piloti.sophia.ac.jp/eng/scholarships1/scholraship_e0005/" target="_blank" style="color:inherit">piloti.sophia.ac.jp (Web Piloti)</a></div>
+
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════════════ TEMPLE ═══════════════════ -->
+<section id="temple" class="section">
+<div class="container">
+  <div class="school-card">
+    <div class="school-head">
+      <div>
+        <div class="school-name">Temple University Japan Campus (TUJ)</div>
+        <div class="school-sub">東京・世田谷（＋京都）／ 美國天普大學分校 ／ THE 全球 #401–500 ／ 1982年創立</div>
+      </div>
+      <span class="tier" style="background:var(--gold-bg);color:var(--gold);border:1px solid #E0C87A;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:99px;">🟢 保底校</span>
+    </div>
+    <div class="school-body">
+
+      <div class="sec-label">申請主修</div>
+      <div class="prog">
+        <div class="prog-head">
+          <span class="prog-name">Psychology（心理學）— 主力申請主修</span>
+          <span class="tag tag-p">心理學</span>
+        </div>
+        <div class="prog-desc">
+          日本境內唯一可取得美國大學正式心理學學士學位的課程。學位由美國賓州天普大學（Temple University, Philadelphia）正式授予，與美國本校學位完全相同。課程涵蓋臨床、社會、發展、認知心理學等核心領域。2025年秋季起新增心理學選修課程，持續擴充。<br><br>
+          對未來有意赴美或其他英語系國家繼續升學者，TUJ 的美國大學學歷具有明顯優勢。可選擇雙主修，搭配 Communication Studies、Asian Studies、International Affairs 等。
+        </div>
+        <div class="hl hl-gold">★ 日本唯一美國心理學學士學位 · 強烈建議優先申請</div>
+      </div>
+      <div class="prog">
+        <div class="prog-head">
+          <span class="prog-name">其他可選主修（共 13 個）</span>
+          <span class="tag tag-l">傳播</span><span class="tag tag-i">國際事務</span><span class="tag tag-i">亞洲研究</span>
+        </div>
+        <div class="prog-desc">Art, Artificial Intelligence, Asian Studies, Communication Studies, Computer Science, Economics, General Studies, International Affairs, International Business Studies, Japanese Language, Political Science, Psychology, Tourism &amp; Hospitality Management — 均全英語授課，可雙主修。</div>
+      </div>
+
+      <hr class="divider">
+      <div class="sec-label">申請條件（門檻最低的四校）</div>
+      <div class="stats-grid">
+        <div class="stat"><div class="stat-label">SAT</div><div class="stat-val">完全選填<br>Test-Optional</div></div>
+        <div class="stat"><div class="stat-label">GPA 建議</div><div class="stat-val">3.0+</div></div>
+        <div class="stat"><div class="stat-label">TOEFL</div><div class="stat-val sm">母語英語者 / 3年英語授課可免 TOEFL</div></div>
+        <div class="stat"><div class="stat-label">面試</div><div class="stat-val">無</div></div>
+        <div class="stat"><div class="stat-label">錄取率</div><div class="stat-val">約 83%</div></div>
+        <div class="stat"><div class="stat-label">申請方式</div><div class="stat-val sm">全年滾動式申請（Rolling Admissions）</div></div>
+      </div>
+
+      <div class="sec-label">必備申請文件</div>
+      <div class="stats-grid">
+        <div class="stat"><div class="stat-label">學術成績</div><div class="stat-val sm">高中成績單</div></div>
+        <div class="stat"><div class="stat-label">SAT/ACT</div><div class="stat-val sm">選填（提交有助獎學金及課程分班）</div></div>
+        <div class="stat"><div class="stat-label">個人陳述</div><div class="stat-val sm">Personal Statement（含在線上申請表中）</div></div>
+        <div class="stat"><div class="stat-label">英語證明</div><div class="stat-val sm">母語英語者免提交；或 3 年英語授課學校證明</div></div>
+        <div class="stat"><div class="stat-label">高中畢業資格</div><div class="stat-val sm">高中畢業或預計畢業</div></div>
+        <div class="stat"><div class="stat-label">申請費</div><div class="stat-val sm">¥10,500</div></div>
+      </div>
+
+      <hr class="divider">
+      <div class="sec-label">申請時間（全年滾動式）</div>
+      <div class="stats-grid">
+        <div class="stat"><div class="stat-label">Fall 2027（秋季）申請</div><div class="stat-val sm">建議 2026年秋–2027年春送出<br>越早越有獎學金優先機會</div></div>
+        <div class="stat"><div class="stat-label">Spring 2027（春季）申請</div><div class="stat-val sm">建議 2026年秋送出</div></div>
+        <div class="stat"><div class="stat-label">玟廷建議時程</div><div class="stat-val sm">2026年秋天（SAT成績出來後）<br>即可送出申請</div></div>
+        <div class="stat"><div class="stat-label">可提前申請幾個學期</div><div class="stat-val sm">最多提前 3 個學期申請</div></div>
+      </div>
+
+      <hr class="divider">
+      <div class="sec-label">學費 &amp; 獎學金</div>
+      <div class="stats-grid">
+        <div class="stat"><div class="stat-label">每學期學費</div><div class="stat-val">約 ¥880,000<br><span style="font-size:11px;font-weight:400">（12–18 學分）</span></div></div>
+        <div class="stat"><div class="stat-label">年學費（兩學期）</div><div class="stat-val">約 ¥1,760,000</div></div>
+        <div class="stat">
+          <div class="stat-label">Diamond Scholarship</div>
+          <div class="stat-val sm">最高補助 100% 學費，按成績競爭制，申請時自動評估</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Dean's Scholarship 等</div>
+          <div class="stat-val sm">多檔獎學金可疊加，越早申請越有機會獲得較高額度</div>
+        </div>
+        <div class="stat"><div class="stat-label">住宿費（第一年）</div><div class="stat-val sm">持有學生簽證者第一年需住TUJ宿舍（2026秋起正式實施）</div></div>
+        <div class="stat"><div class="stat-label">美國聯邦助學金</div><div class="stat-val sm">限美國公民 / 合法居民（FAFSA）</div></div>
+      </div>
+
+      <div class="hl hl-green">★ 獎學金申請隨入學申請一起自動評估，無需額外表格，越早送出申請越有利</div>
+
+      <hr class="divider">
+      <div class="sec-label">學校特色 &amp; 優勢</div>
+      <div class="prog-desc" style="font-size:14px;line-height:1.7">
+        TUJ 是日本歷史最悠久（1982年）且規模最大的美國大學分校，目前有約 3,319 名大學部學生，其中約 60% 為國際生，校園語言幾乎為純英語環境。取得的學位與美國費城天普大學本校完全相同，對未來赴英語系國家升學或就業非常有利。2026年秋起新增京都校區住宿及「Fly to Philly Program」，可選擇彈性至費城本部就讀。THE 世界排名 401–500，美國大學排名屬中段，但性價比高，適合作為確保保底的申請選項。
+      </div>
+
+      <div class="hl hl-blue" style="margin-top:1rem">🔗 申請官網：<a href="https://www.tuj.ac.jp/ug/admissions/how-to-apply" target="_blank" style="color:inherit">tuj.ac.jp/ug/admissions/how-to-apply</a></div>
+      <div class="hl hl-blue">🔗 獎學金：<a href="https://www.tuj.ac.jp/ug/cost-financial-aid/scholarships/for-incoming-students" target="_blank" style="color:inherit">tuj.ac.jp/ug/cost-financial-aid/scholarships</a></div>
+
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════════════ COMPARE ═══════════════════ -->
+<section id="compare" class="section">
+<div class="container-wide">
+  <div style="margin-bottom:1.5rem">
+    <h2 style="font-family:'DM Serif Display',serif;font-size:1.6rem;margin-bottom:.4rem">四校快速比較</h2>
+    <p style="color:var(--muted);font-size:13px">所有課程均為 100% 英語授課，無日語能力要求</p>
+  </div>
+  <div class="table-wrap">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th style="min-width:120px">比較項目</th>
+          <th>早稻田 SILS</th>
+          <th>慶應 PEARL</th>
+          <th>慶應 GIGA</th>
+          <th>上智 FLA</th>
+          <th>Temple TUJ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="row-label">志願類型</td>
+          <td><span class="tier tier-reach" style="font-size:10px">衝刺</span></td>
+          <td><span class="tier tier-reach" style="font-size:10px">衝刺</span></td>
+          <td><span class="tier tier-reach" style="font-size:10px">衝刺</span></td>
+          <td><span class="tier tier-target" style="font-size:10px">目標</span></td>
+          <td><span class="tier" style="background:var(--gold-bg);color:var(--gold);border:1px solid #E0C87A;font-size:10px;font-weight:600;padding:3px 8px;border-radius:99px;">保底</span></td>
+        </tr>
+        <tr>
+          <td class="row-label">QS 2026 全球排名</td>
+          <td>#196</td>
+          <td colspan="2" style="text-align:center">#215</td>
+          <td>#951–1000</td>
+          <td>THE #401–500</td>
+        </tr>
+        <tr>
+          <td class="row-label">科系方向</td>
+          <td>自由教育<br>跨學科</td>
+          <td>經濟學</td>
+          <td>政策管理<br>跨學科</td>
+          <td>自由教育<br>人文社科</td>
+          <td>心理學<br>（美國學位）</td>
+        </tr>
+        <tr>
+          <td class="row-label">SAT 要求</td>
+          <td>1400–1500<br>（競爭範圍）</td>
+          <td>必繳<br>1400+ 建議</td>
+          <td>選填<br>1350+ 建議</td>
+          <td>1300–1450<br>（競爭範圍）</td>
+          <td class="cell-yes">完全選填</td>
+        </tr>
+        <tr>
+          <td class="row-label">TOEFL 要求</td>
+          <td>100+ 建議<br>（母語可豁免）</td>
+          <td>母語可豁免</td>
+          <td>母語可豁免</td>
+          <td>80–100</td>
+          <td class="cell-yes">母語英語免提交</td>
+        </tr>
+        <tr>
+          <td class="row-label">GPA 建議</td>
+          <td>3.5+</td>
+          <td>3.5+</td>
+          <td>3.5+</td>
+          <td>3.3+</td>
+          <td>3.0+</td>
+        </tr>
+        <tr>
+          <td class="row-label">面試</td>
+          <td class="cell-yes">無</td>
+          <td class="cell-yes">無</td>
+          <td class="cell-yes">無（Winter AO）</td>
+          <td class="cell-yes">無</td>
+          <td class="cell-yes">無</td>
+        </tr>
+        <tr>
+          <td class="row-label">入學期</td>
+          <td>9月（秋）only</td>
+          <td>9月（秋）only</td>
+          <td>9月（秋）<br>4月（春）</td>
+          <td>9月（秋）<br>4月（春）</td>
+          <td>春・夏・秋<br>全年</td>
+        </tr>
+        <tr>
+          <td class="row-label">整體錄取率</td>
+          <td>約 10–15%</td>
+          <td colspan="2" style="text-align:center">約 20–24%</td>
+          <td>約 34–45%</td>
+          <td>約 83%</td>
+        </tr>
+        <tr>
+          <td class="row-label">年學費（約）</td>
+          <td>¥1,419,000</td>
+          <td>¥1,400,000</td>
+          <td>¥1,400,000</td>
+          <td>¥1,400,000</td>
+          <td>¥1,760,000<br>（兩學期）</td>
+        </tr>
+        <tr>
+          <td class="row-label">入學時可申請獎學金</td>
+          <td>早期錄取優先</td>
+          <td class="cell-no">入學後申請</td>
+          <td class="cell-yes">Winter AO 全額（9月入學）</td>
+          <td class="cell-yes">New Student /<br>Adachi（申請時提交）</td>
+          <td class="cell-yes">Diamond / Dean's（自動評估）</td>
+        </tr>
+        <tr>
+          <td class="row-label">2027/09 申請截止</td>
+          <td>早期：約 2026/12<br>一般：約 2027/01</td>
+          <td>第三期：約 2027/04</td>
+          <td>Winter AO：約 2027/01</td>
+          <td>第一期：約 2026/11<br>第二期：約 2027/01–02</td>
+          <td class="cell-yes">全年滾動，無固定截止</td>
+        </tr>
+        <tr>
+          <td class="row-label">2028/04 入學備案</td>
+          <td class="cell-no">無（僅秋季）</td>
+          <td class="cell-no">無（僅秋季）</td>
+          <td class="cell-yes">可（Winter AO 2027）</td>
+          <td class="cell-yes">可</td>
+          <td class="cell-yes">可（隨時申請）</td>
+        </tr>
+        <tr>
+          <td class="row-label">心理學相關程度</td>
+          <td>⭐⭐⭐（跨學科選修）</td>
+          <td>⭐⭐（行為經濟）</td>
+          <td>⭐⭐⭐（社科跨域）</td>
+          <td>⭐⭐⭐⭐（人文社科）</td>
+          <td>⭐⭐⭐⭐⭐（主修心理）</td>
+        </tr>
+        <tr>
+          <td class="row-label">學位性質</td>
+          <td>日本大學學位</td>
+          <td>日本大學學位</td>
+          <td>日本大學學位</td>
+          <td>日本大學學位</td>
+          <td>美國大學學位</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:11px;color:var(--subtle);margin-top:.75rem">※ 截止日均為依各校歷年慣例推估，2027年入學之正式截止日請以各校官網最新公告為準。</p>
+</div>
+</section>
+
+<!-- ═══════════════════ TIMELINE ═══════════════════ -->
+<section id="timeline" class="section">
+<div class="container">
+  <div style="margin-bottom:1.5rem">
+    <h2 style="font-family:'DM Serif Display',serif;font-size:1.6rem;margin-bottom:.4rem">玟廷申請時程表</h2>
+    <p style="color:var(--muted);font-size:13px">主要目標：2027年9月入學 ／ 備案：2028年4月入學（GIGA / Sophia / Temple）</p>
+  </div>
+
+  <div class="tl-legend">
+    <div class="tl-legend-item"><div class="tl-dot-sm dot-w"></div>早稻田 Waseda</div>
+    <div class="tl-legend-item"><div class="tl-dot-sm dot-k"></div>慶應 Keio</div>
+    <div class="tl-legend-item"><div class="tl-dot-sm dot-s"></div>上智 Sophia</div>
+    <div class="tl-legend-item"><div class="tl-dot-sm dot-t"></div>Temple TUJ</div>
+    <div class="tl-legend-item"><div class="tl-dot-sm dot-all"></div>共同準備</div>
+  </div>
+
+  <div class="timeline">
+
+    <div class="tl-group">
+      <div class="tl-month">現在<br>2026/05–06</div>
+      <div class="tl-events">
+        <div class="tl-evt"><div class="tl-evt-dot" style="background:#5A3FA8"></div><span class="tl-badge tl-badge-all">共同</span><span><span class="tl-key">SAT 考試 2026/06/06</span> — 目標 1450+，成績約3週後放榜</span></div>
+        <div class="tl-evt"><div class="tl-evt-dot" style="background:#5A3FA8"></div><span class="tl-badge tl-badge-all">共同</span><span>AP 心理學成績放榜（5月已考）— 確認分數，加入申請文件</span></div>
+        <div class="tl-evt"><div class="tl-evt-dot" style="background:#8C6D28"></div><span class="tl-badge tl-badge-t">Temple</span><span>申請隨時可開始，建議準備個人陳述草稿</span></div>
+      </div>
+    </div>
+
+    <div class="tl-group">
+      <div class="tl-month">2026/07–08</div>
+      <div class="tl-events">
+        <div class="tl-evt"><div class="tl-evt-dot" style="background:#5A3FA8"></div><span class="tl-badge tl-badge-all">共同</span><span><span class="tl-key">SAT 成績確認</span>（約 7 月初）— 評估是否需再考（下一次約 2026/08）</span></div>
+        <div class="tl-evt"><div class="tl-evt-dot" style="background:#5A3FA8"></div><span class="tl-badge tl-badge-all">共同</span><span>準備申請文件：<span class="tl-key">個人陳述（PS）</span> 初稿、推薦人確認</span></div>
+        <div class="tl-evt"><div class="tl-evt-dot" style="background:#1A5FA8"></div><span class="tl-badge tl-badge-k">慶應</span><span>GIGA Winter AO 2026 申請指南預計 <span class="tl-key">8月底公告</span>（針對 2027/09 + 2028/04 入學）</span></div>
+        <div class="tl-evt"><div class="tl-evt-dot" style="background:#5A3FA8"></div><span class="tl-badge tl-badge-all">共同</span><span>追蹤各校 2027 年入學申請指南是否已公告</span></div>
+      </div>
+    </div>
+
+    <div class="tl-group">
+      <div class="tl-month">2026/09</div>
+      <div class="tl-events">
+        <div class="tl-evt"><div class="tl-evt-dot" style="background:#C4401C"></div><span class="tl-badge tl-badge-w">早稻田</span><span>SILS 2027/09 入學申請指南預計 <span class="tl-key">9月公告</span></span></div>
+        <div class="tl-evt"><div class="tl-evt-dot" style="background:#1A5FA8"></div><span class="tl-badge tl-badge-k">慶應</span><span>PEARL 第一期申請開放（預計 10 月下旬，先確認指南）</span></div>
+        <div class="tl-evt"><div class="tl-evt-dot" style="background:#8C6D28"></div><span class="tl-badge tl-badge-t">Temple</span><span><span class="tl-key">建議在此時送出 TUJ 申請</span>，SAT 成績已出爐，越早申請獎學金機會越大</span></div>
+      </div>
+    </div>
+
+    <div class="tl-group">
+      <div class="tl-month">2026/10–11</div>
+      <div class="tl-events">
+        <div class="tl-evt"><div class="tl-evt-dot" style="background:#C4401C"></div><span class="tl-badge tl-badge-w">早稻田</span><span>SILS <span class="tl-key">Early Decision 申請開放</span>（預計 10 月下旬）— 建議優先申請早期，有獎學金優先資格</span></div>
+        <div class="tl-evt"><div class="tl-evt-dot" style="background:#1A5FA8"></div><span class="tl-badge tl-badge-k">慶應</span><span>PEARL 第一期申請開放，GIGA Winter AO 申請開放</span></div>
+        <div class="tl-evt"><div class="tl-evt-dot" style="background:#1A7A48"></div><span class="tl-badge tl-badge-s">上智</span><span>FLA <span class="tl-key">第一期申請開放</span>（預計 10–11 月）</span></div>
+        <div class="tl-evt"><div class="tl-evt-dot" style="background:#5A3FA8"></div><span class="tl-badge tl-badge-all">共同</span><span>向推薦老師正式提出推薦信請求（給予至少 4–6 週準備時間）</span></div>
+      </div>
+    </div>
+
+    <div class="tl-group">
+      <div class="tl-month">2026/11</div>
+      <div class="tl-events">
+        <div class="tl-evt"><div class="tl-evt-dot" style="background:#1A7A48"></div><span class="tl-badge tl-badge-s">上智</span><span>FLA <span class="tl-key">第一期截止</span>（預計 11 月，確認官網）— 同步提交 Adachi / New Student 獎學金申請</span></div>
+        <div class="tl-evt"><div class="tl-evt-dot" style="background:#5A3FA8"></div><span class="tl-badge tl-badge-all">共同</span><span>TOEFL 再考（如分數未達100，11月有考期）</span></div>
+      </div>
+    </div>
+
+    <div class="tl-group">
+      <div class="tl-month">2026/12</div>
+      <div class="tl-events">
+        <div class="tl-evt"><div class="tl-evt-dot" style="background:#C4401C"></div><span class="tl-badge tl-badge-w">早稻田</span><span>SILS <span class="tl-key">Early Decision 截止</span>（預計 12 月下旬）</span></div>
+        <div class="tl-evt"><div class="tl-evt-dot" style="background:#1A5FA8"></div><span class="tl-badge tl-badge-k">慶應</span><span>PEARL <span class="tl-key">第一期截止</span>（預計 12 月初）</span></div>
+        <div class="tl-evt"><div class="tl-evt-dot" style="background:#1A5FA8"></div><span class="tl-badge tl-badge-k">慶應</span><span>GIGA Winter AO <span class="tl-key">申請截止</span>（預計 12 月底–1 月中）</span></div>
+      </div>
+    </div>
+
+    <div class="tl-group">
+      <div class="tl-month">2027/01–02</div>
+      <div class="tl-events">
+        <div class="tl-evt"><div class="tl-evt-dot" style="background:#C4401C"></div><span class="tl-badge tl-badge-w">早稻田</span><span>SILS <span class="tl-key">Early Decision 放榜</span>（預計 2 月初）</span></div>
+        <div class="tl-evt"><div class="tl-evt-dot" style="background:#C4401C"></div><span class="tl-badge tl-badge-w">早稻田</span><span>SILS <span class="tl-key">一般申請截止</span>（預計 1 月下旬）</span></div>
+        <div class="tl-evt"><div class="tl-evt-dot" style="background:#1A5FA8"></div><span class="tl-badge tl-badge-k">慶應</span><span>PEARL 第二期截止（預計 1 月下旬）；GIGA Winter AO 放榜</span></div>
+        <div class="tl-evt"><div class="tl-evt-dot" style="background:#1A7A48"></div><span class="tl-badge tl-badge-s">上智</span><span>FLA <span class="tl-key">第二期截止</span>（預計 1–2 月）</span></div>
+      </div>
+    </div>
+
+    <div class="tl-group">
+      <div class="tl-month">2027/03–05</div>
+      <div class="tl-events">
+        <div class="tl-evt"><div class="tl-evt-dot" style="background:#C4401C"></div><span class="tl-badge tl-badge-w">早稻田</span><span>SILS 一般申請放榜</span></div>
+        <div class="tl-evt"><div class="tl-evt-dot" style="background:#1A5FA8"></div><span class="tl-badge tl-badge-k">慶應</span><span>PEARL <span class="tl-key">第三期截止</span>（最終，預計 4 月初）；第二期放榜</span></div>
+        <div class="tl-evt"><div class="tl-evt-dot" style="background:#1A7A48"></div><span class="tl-badge tl-badge-s">上智</span><span>FLA 第二期放榜</span></div>
+        <div class="tl-evt"><div class="tl-evt-dot" style="background:#8C6D28"></div><span class="tl-badge tl-badge-t">Temple</span><span>確認 TUJ 錄取結果與獎學金；辦理入學登記（如決定就讀）</span></div>
+        <div class="tl-evt"><div class="tl-evt-dot" style="background:#5A3FA8"></div><span class="tl-badge tl-badge-all">共同</span><span><span class="tl-key">確認入學意向</span>，選擇最終就讀學校，辦理拒絕其他錄取</span></div>
+      </div>
+    </div>
+
+    <div class="tl-group">
+      <div class="tl-month">2027/06–08</div>
+      <div class="tl-events">
+        <div class="tl-evt"><div class="tl-evt-dot" style="background:#1A5FA8"></div><span class="tl-badge tl-badge-k">慶應</span><span>PEARL 第三期放榜（預計 5 月下旬）</span></div>
+        <div class="tl-evt"><div class="tl-evt-dot" style="background:#5A3FA8"></div><span class="tl-badge tl-badge-all">共同</span><span>申請學生簽證（COE），準備赴日行前事宜，住宿安排</span></div>
+      </div>
+    </div>
+
+    <div class="tl-group">
+      <div class="tl-month">2027/09</div>
+      <div class="tl-events">
+        <div class="tl-evt"><div class="tl-evt-dot" style="background:#5A3FA8"></div><span class="tl-badge tl-badge-all">目標達成</span><span><span class="tl-key">入學！</span> 早稻田 / 慶應 / 上智 / Temple 均為 9 月秋季入學</span></div>
+      </div>
+    </div>
+
+    <div class="tl-group">
+      <div class="tl-month">備案<br>2027/11–12</div>
+      <div class="tl-events">
+        <div class="tl-evt"><div class="tl-evt-dot" style="background:#1A5FA8"></div><span class="tl-badge tl-badge-k">慶應</span><span>若 2027/09 未達目標：GIGA Winter AO 2026（針對 2028/04 + 2028/09 入學）預計開放</span></div>
+        <div class="tl-evt"><div class="tl-evt-dot" style="background:#1A7A48"></div><span class="tl-badge tl-badge-s">上智</span><span>Sophia FLA 2028/04 春季入學申請預計開放</span></div>
+        <div class="tl-evt"><div class="tl-evt-dot" style="background:#8C6D28"></div><span class="tl-badge tl-badge-t">Temple</span><span>TUJ 全年隨時可申請 2028/04 入學</span></div>
+      </div>
+    </div>
+
+    <div class="tl-group">
+      <div class="tl-month">備案<br>2028/04</div>
+      <div class="tl-events">
+        <div class="tl-evt"><div class="tl-evt-dot" style="background:#5A3FA8"></div><span class="tl-badge tl-badge-all">備案入學</span><span>GIGA（慶應）/ Sophia FLA / Temple TUJ — 2028年4月春季入學</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hl hl-warn" style="margin-top:1.5rem;display:block;font-size:12px;line-height:1.6">
+    ⚠️ 以上所有截止日均為依各校 2026 年入學申請慣例推估，2027 年入學之正式申請截止日將於 2026 年秋季陸續公告。請持續追蹤各校官網，以正式公告為準。
+  </div>
+
+</div>
+</section>
+
+<div class="footer-note">
+  資料整理日期：2026年5月 ／ 資料來源：各校官網（Waseda SILS, Keio PEARL/GIGA, Sophia FLA, Temple TUJ）<br>
+  SAT 目標 1450 ／ TOEFL 目標 100 ／ 主要目標：2027年9月入學 ／ 備案：2028年4月入學
+</div>
+
+<script>
+  function showTab(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.currentTarget.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>
